@@ -87,3 +87,26 @@ create table participacion_evento (
 	id_evento int references evento_ca(id_evento_ca),
 	id_persona int references persona(id)
 );
+
+drop table if exists part_horas_beca cascade;
+create table part_horas_beca (
+	id_part_horas_beca serial primary key,
+	id_persona int references persona(id),
+	id_evento int references evento(id_evento),
+	horas_realizadas float not null
+);
+
+drop table if exists sesion cascade;
+create table sesion (
+	id_sesion serial primary key,
+	id_persona int references persona(id),
+	id_ca int references asociacion_club(id_ca),
+	fecha date not null
+);
+
+drop table if exists roles cascade;
+create table roles (
+	id_roles serial primary key,
+	id_permiso int references permiso(id_permiso),
+	id_persona int references persona(id)
+);
