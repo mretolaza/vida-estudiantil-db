@@ -74,6 +74,18 @@ create table miembro(
 	id_ca int references asociacion_club(id_ca),
 	anio int not null
 );
+
+drop table if exists evento_ca cascade;
+create table evento_ca(
+	id_evento_ca serial primary key,
+	nombre varchar(50) not null,
+	salon varchar(10),
+	fecha DATE not null,
+	descripcion varchar (100) not null,
+	ingresos float,
+	egresos float	
+);
+
 drop table if exists realizacion cascade;
 create table realizacion (
 	id_realizacion serial primary key,
@@ -86,6 +98,21 @@ create table participacion_evento (
 	id_part_evento serial primary key,
 	id_evento int references evento_ca(id_evento_ca),
 	id_persona int references persona(id)
+);
+
+drop table if exists evento cascade;
+create table evento(
+	id_evento serial primary key,
+	nombre varchar(50) not null,
+	salon varchar(10),
+	fecha DATE not null,
+	descripcion varchar (100) not null
+);
+
+drop table if exists permiso cascade;
+create table permiso(
+	id_permiso serial primary key,
+	nombre varchar(50) not null	
 );
 
 drop table if exists part_horas_beca cascade;
