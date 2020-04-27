@@ -138,6 +138,12 @@ create table roles (
 	id_persona int references persona(id)
 );
 
+drop table if exists skill cascade;
+create table skill (
+	id_skill serial primary key,
+	skill VARCHAR(30)
+);
+
 drop table if exists posee cascade;
 create table posee (
 	id_posee serial primary key,
