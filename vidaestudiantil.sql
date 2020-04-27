@@ -137,3 +137,10 @@ create table roles (
 	id_permiso int references permiso(id_permiso),
 	id_persona int references persona(id)
 );
+
+drop table if exists posee cascade;
+create table posee (
+	id_posee serial primary key,
+	id_persona int references persona(id),
+	id_skill int references skill(id_skill)
+);
