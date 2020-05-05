@@ -1,15 +1,12 @@
 drop table if exists persona cascade;
 create table persona(
 	id serial primary key,
-	contrasena varchar(30) not null,
 	horas_beca INT,
 	carrera varchar(100),
-	correo varchar(100),
 	carne INT,
 	genero varchar(30) not null,
-	nombre varchar(100) not null,
 	facultad varchar(100),
-	apellido varchar(50)
+	id_user INT REFERENCES users(id)
 );
 
 drop table if exists tipo cascade;
