@@ -4,9 +4,9 @@ create table persona(
 	horas_beca INT,
 	carrera varchar(100),
 	carne INT,
-	genero varchar(30) not null,
+	genero varchar(30),
 	facultad varchar(100),
-	id_user INT REFERENCES users(id)
+	email varchar(30) REFERENCES users(email)
 );
 
 drop table if exists tipo cascade;
